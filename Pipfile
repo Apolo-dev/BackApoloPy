@@ -13,6 +13,10 @@ pylint-celery = "*"
 mysqlclient = "*"
 pymysql = "*"
 djangorestframework = "*"
+django-cors-headers = "*"
+markdown = "*"
+django-filter = "*"
+django-simple-history = "*"
 
 [dev-packages]
 
