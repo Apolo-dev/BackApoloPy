@@ -27,4 +27,17 @@ class LabGiratorio(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
 
+
+class Energia(models.Model):
+    wi = models.PositiveIntegerField(blank=False, null=False)
+    p80 = models.PositiveIntegerField(blank=False, null=False)
+    f80 = models.PositiveIntegerField(blank=False, null=False)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["wi"]
+
+    
+
     
