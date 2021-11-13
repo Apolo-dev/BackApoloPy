@@ -25,6 +25,7 @@ BASE_APPS = [
 ]
 
 LOCAL_APPS = [
+    'corsheaders',
     'AppLaboratorio',
 ]
 
@@ -45,7 +46,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+)
 
 ROOT_URLCONF = 'apolo.urls'
 
