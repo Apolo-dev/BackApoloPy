@@ -20,8 +20,7 @@ class LabGiratorio(models.Model):
     peso15 = models.FloatField(blank=False, null=False)
     peso16 = models.FloatField(blank=False, null=False)
     peso17 = models.FloatField(blank=False, null=False)
-    peso18 = models.FloatField(blank=False, null=False)
-    peso19 = models.FloatField(blank=False, null=False)
+
 
     crated = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
