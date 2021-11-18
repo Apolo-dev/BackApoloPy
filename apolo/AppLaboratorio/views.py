@@ -1,6 +1,6 @@
 from rest_framework.fields import JSONField
-from .serializer import LabGiratorioSerializer, EnergiaSerializer
-from .models import LabGiratorio, Energia
+from .serializer import LabGiratorioSerializer, EnergiaSerializer, AberturaSerializer
+from .models import LabGiratorio, Energia, Abertura
 from rest_framework import routers, viewsets
 
 # matematicas
@@ -10,8 +10,12 @@ from math import sqrt
 # Create your views here.
 
 class SaveLab(viewsets.ModelViewSet):
-    queryset = LabGiratorio.objects.all()
+    queryset = LabGiratorio.objects.filter(id = 5)
     serializer_class = LabGiratorioSerializer
+
+class saveAbertura(viewsets.ModelViewSet):
+    queryset = Abertura.objects.all()
+    serializer_class = AberturaSerializer
 
 
 class Energia(viewsets.ModelViewSet):

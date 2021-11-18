@@ -22,8 +22,33 @@ class LabGiratorio(models.Model):
     peso17 = models.FloatField(blank=False, null=False)
 
 
-    crated = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+
+class Abertura(models.Model):
+    
+    abertura1 = models.IntegerField(blank=False, null=False)
+    abertura2 = models.IntegerField(blank=False, null=False)
+    abertura3 = models.IntegerField(blank=False, null=False)
+    abertura4 = models.IntegerField(blank=False, null=False)
+    abertura5 = models.IntegerField(blank=False, null=False)
+    abertura6 = models.IntegerField(blank=False, null=False)
+    abertura7 = models.IntegerField(blank=False, null=False)
+    abertura8 = models.IntegerField(blank=False, null=False)
+    abertura9 = models.IntegerField(blank=False, null=False)
+    abertura10 = models.IntegerField(blank=False, null=False)
+    abertura11 = models.IntegerField(blank=False, null=False)
+    abertura12 = models.IntegerField(blank=False, null=False)
+    abertura13 = models.IntegerField(blank=False, null=False)
+    abertura14 = models.IntegerField(blank=False, null=False)
+    abertura15 = models.IntegerField(blank=False, null=False)
+    abertura16 = models.IntegerField(blank=False, null=False)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+
 
 
 
