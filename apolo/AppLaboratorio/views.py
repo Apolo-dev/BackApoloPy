@@ -10,7 +10,7 @@ from math import sqrt
 # Create your views here.
 
 class SaveLab(viewsets.ModelViewSet):
-    queryset = LabGiratorio.objects.filter(id = 5)
+    queryset = LabGiratorio.objects.all()
     serializer_class = LabGiratorioSerializer
 
 class saveAbertura(viewsets.ModelViewSet):
