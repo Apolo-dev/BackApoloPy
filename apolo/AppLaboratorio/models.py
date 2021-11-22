@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import fields
 
 # Create your models here.
 
@@ -20,10 +21,11 @@ class LabGiratorio(models.Model):
     peso15 = models.FloatField(blank=False, null=False)
     peso16 = models.FloatField(blank=False, null=False)
     peso17 = models.FloatField(blank=False, null=False)
+    fechaActual = models.IntegerField()
 
 
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateField(auto_now_add=True)
+    updated = models.DateField(auto_now=True)
 
 
 class Abertura(models.Model):

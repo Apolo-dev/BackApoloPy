@@ -2,6 +2,7 @@ from rest_framework.fields import JSONField
 from .serializer import LabGiratorioSerializer, EnergiaSerializer, AberturaSerializer
 from .models import LabGiratorio, Energia, Abertura
 from rest_framework import routers, viewsets
+from rest_framework import generics
 
 # matematicas
 from math import sqrt
@@ -12,6 +13,12 @@ from math import sqrt
 class SaveLab(viewsets.ModelViewSet):
     queryset = LabGiratorio.objects.all()
     serializer_class = LabGiratorioSerializer
+
+
+class SaveUnaLab(generics.CreateAPIView):
+    serializer_class = LabGiratorioSerializer
+
+
 
 class saveAbertura(viewsets.ModelViewSet):
     queryset = Abertura.objects.all()
