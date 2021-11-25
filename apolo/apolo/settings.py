@@ -27,7 +27,6 @@ BASE_APPS = [
 LOCAL_APPS = [
     'corsheaders',
     'AppLaboratorio',
-    'AppUser',
 ]
 
 THIRD_APPS = [

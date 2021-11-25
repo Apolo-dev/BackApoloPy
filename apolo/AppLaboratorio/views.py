@@ -1,8 +1,12 @@
 from rest_framework.fields import JSONField
+from rest_framework.views import APIView
 from .serializer import LabGiratorioSerializer, EnergiaSerializer, AberturaSerializer
 from .models import LabGiratorio, Energia, Abertura
 from rest_framework import routers, viewsets
 from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework import status
+from django.http import Http404
 
 # matematicas
 from math import sqrt
@@ -10,13 +14,44 @@ from math import sqrt
 
 # Create your views here.
 
-class SaveLab(viewsets.ModelViewSet):
-    queryset = LabGiratorio.objects.all()
-    serializer_class = LabGiratorioSerializer
+class SaveLab(APIView):
 
 
-class SaveUnaLab(generics.CreateAPIView):
-    serializer_class = LabGiratorioSerializer
+    def get(self, request, format=None):
+        queryset = LabGiratorio.objects.all()
+        serializer_class = LabGiratorioSerializer(queryset, many=True)
+        return Response(serializer_class.data)
+
+    def post(self, request, format=None):
+        serializer = LabGiratorioSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class SaveDetailLab(APIView):
+
+    def get_object(self, pk):
+        try:
+            return LabGiratorio.objects.get(fechaActual=pk)
+        except LabGiratorio.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        pesos = self.get_object(pk)
+        serializer = LabGiratorioSerializer(pesos)
+        return Response(serializer.data)
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -25,31 +60,14 @@ class saveAbertura(viewsets.ModelViewSet):
     serializer_class = AberturaSerializer
 
 
-class Energia(viewsets.ModelViewSet):
-    queryset = Energia.objects.all()
-    serializer_class = EnergiaSerializer
-
-    wi = queryset[0].wi
-    f80 = queryset[0].f80
-    p80 = queryset[0].p80
-
-    def calcular(self):
-        res = (10*self.wi)*((1/sqrt(self.p80))-(1/sqrt(self.f80)))
-        energia = round(res, 2)
-
-        diccionario = [{"energy": energia}]
-        print(diccionario)
-        return (energia)
+class FiltrarCalendario(viewsets.ModelViewSet):
+    queryset = LabGiratorio.objects.filter()
+    serializer_class = LabGiratorioSerializer
 
 
-class CalcEnegy(Energia):
-
-    def algo(self):
-        return self.calcular()
 
 
-rsss = CalcEnegy()
-print(rsss.algo())
+
     
         
     

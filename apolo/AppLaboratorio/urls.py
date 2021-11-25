@@ -1,19 +1,17 @@
 from django.urls import path, include
-from rest_framework.fields import JSONField, SerializerMethodField
+#from rest_framework.fields import JSONField, SerializerMethodField
 
 #from Pokemon.AppPrincipal.models import Ataque
-from .views import SaveLab, Energia, CalcEnegy, saveAbertura, SaveUnaLab
-from rest_framework import routers
+from .views import SaveLab, SaveDetailLab
+#from rest_framework import routers
+from rest_framework.urlpatterns import format_suffix_patterns
+#from snippets import views
 
 
-router = routers.DefaultRouter()
-router.register('pesos', SaveLab)
-router.register('pesos/<int:id>', SaveLab)
-
-router.register('aberturas', saveAbertura)
-router.register('energia', Energia)
-#router.register('calculos', CalcEnegy)
-
-urlpatterns=[
-    path('', include(router.urls)),
+urlpatterns = [
+    path('pesos/', SaveLab.as_view()),
+    path('pesos/<int:pk>/', SaveDetailLab.as_view()),
+    
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
