@@ -1,4 +1,4 @@
-from rest_framework.fields import JSONField
+from rest_framework.fields import DateField, JSONField
 from rest_framework.views import APIView
 from .serializer import LabGiratorioSerializer, EnergiaSerializer, AberturaSerializer
 from .models import LabGiratorio, Energia, Abertura
