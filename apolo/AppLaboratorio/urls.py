@@ -10,7 +10,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('pesos/', SaveLab.as_view()),
-    path('pesos/<int:pk>/', SaveDetailLab.as_view()),
+    path('pesos/<str:pk>/', SaveDetailLab.as_view()),
     
 ]
 
