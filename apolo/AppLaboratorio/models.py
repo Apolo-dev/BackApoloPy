@@ -21,7 +21,7 @@ class LabGiratorio(models.Model):
     peso15 = models.FloatField(blank=False, null=False)
     peso16 = models.FloatField(blank=False, null=False)
     peso17 = models.FloatField(blank=False, null=False)
-    fechaActual = models.IntegerField()
+    fechaActual = models.IntegerField(blank=True, null=True)
 
 
     created = models.DateField(auto_now_add=True)
@@ -46,6 +46,7 @@ class Abertura(models.Model):
     abertura14 = models.IntegerField(blank=False, null=False)
     abertura15 = models.IntegerField(blank=False, null=False)
     abertura16 = models.IntegerField(blank=False, null=False)
+    fechaActual = models.IntegerField(blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
